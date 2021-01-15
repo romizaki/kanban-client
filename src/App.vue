@@ -46,7 +46,7 @@ export default {
     name: "App",
     data() {
         return {
-            currentPage: "LoginForm",
+            currentPage: "register",
             tasks: [],
             isUserLogin: false,
             categories: ['Backlog','Todo','Doing','Done']
@@ -67,7 +67,7 @@ export default {
             this.currentPage = "HomePage";
             this.isUserLogin = true;
         } else {
-            this.currentPage = "LoginForm";
+            this.currentPage = "register";
             this.isUserLogin = false;
             }
         },
