@@ -1,13 +1,13 @@
 <template>
   <div class="container" >
       <div class="row">
-<!-- v-for="item in items" :key="item.id" -->
 
       <category-column 
         v-for="(category, index) in categories" 
         :key="index" 
         :category="category"
         :tasks="tasks"
+        @data="$emit('data')"
       ></category-column>
       
     </div>
@@ -16,6 +16,7 @@
 
 <script>
 import CategoryColumn from './CategoryColumn'
+// import navbar from "./Navbar"
 
 
 export default {
@@ -23,7 +24,10 @@ export default {
     components: {
       CategoryColumn
     },
-    props: ['tasks','categories']
+    props: ['tasks','categories'],
+    created(){
+      this.$emit('data')
+    }
 }
 
 </script>

@@ -5,6 +5,7 @@
             v-for="task in taskFilter" 
             :key="task.id"
             :task="task"
+            @data="$emit('data')"
         ></task-card>
       </div>
 </template>
@@ -13,7 +14,6 @@
 import TaskCard from "./TaskCard"
 
 export default {
-
 
     name: "CategoryColumn",
     props: ["category","tasks"],
