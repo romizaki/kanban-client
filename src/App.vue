@@ -9,11 +9,12 @@
 
         <login-form 
             v-if="currentPage == 'LoginForm'"
+            @registerForm="registerForm"
             @changePage="changePage"
         ></login-form>
 
         <register-form
-            v-if="currentPage == 'register'"
+            v-if="currentPage == 'registerForm'"
             @changePage="changePage"
         ></register-form>
         <home-page
@@ -37,7 +38,7 @@
 import axios from "axios"
 import LoginForm from "./components/LoginForm"
 import HomePage from "./components/HomePage"
-import RegisterForm from "./components/RegisterForm"
+import registerForm from "./components/RegisterForm"
 import taskForm from "./components/TasksForm"
 import TaskCard from "./components/TaskCard"
 import navbar from "./components/Navbar"
@@ -46,7 +47,7 @@ export default {
     name: "App",
     data() {
         return {
-            currentPage: "register",
+            currentPage: "LoginForm",
             tasks: [],
             isUserLogin: false,
             categories: ['Backlog','Todo','Doing','Done']
@@ -54,7 +55,7 @@ export default {
     },
     components: {
         LoginForm,
-        RegisterForm,
+        registerForm,
         HomePage,
         taskForm,
         TaskCard,
@@ -67,14 +68,14 @@ export default {
             this.currentPage = "HomePage";
             this.isUserLogin = true;
         } else {
-            this.currentPage = "register";
+            this.currentPage = "LoginForm";
             this.isUserLogin = false;
             }
         },
         fetchTask(){
             axios({
                 method: "GET",
-                url: `http://localhost:3000/tasks`,
+                url: `https://kanban-romizaki-app.herokuapp.com/tasks`,
                 headers: {
                     access_token:localStorage.getItem("access_token")
                 },
@@ -98,7 +99,11 @@ export default {
         taskForm(){
             console.log('romi di app');
             this.currentPage = "taskForm"
+        },
+        registerForm(){
+            this.currentPage = "registerForm"
         }
+
     },
     created() {
         this.checkAuth()

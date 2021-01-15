@@ -79,7 +79,7 @@ export default {
         deleteTask(id){
             axios({
                 method: "DELETE",
-                url: `http://localhost:3000/tasks/${id}`,
+                url: `https://kanban-romizaki-app.herokuapp.com/tasks/${id}`,
                 headers: {
                     access_token:localStorage.getItem("access_token")
                 },
@@ -94,7 +94,7 @@ export default {
         patchTaskBacklog(id){
             axios({
                 method: "PATCH",
-                url: `http://localhost:3000/tasks/${id}`,
+                url: `https://kanban-romizaki-app.herokuapp.com/tasks/${id}`,
                 headers: {
                     access_token:localStorage.getItem("access_token")
                 },
@@ -112,7 +112,7 @@ export default {
         patchTaskTodo(id){
             axios({
                 method: "PATCH",
-                url: `http://localhost:3000/tasks/${id}`,
+                url: `https://kanban-romizaki-app.herokuapp.com/tasks/${id}`,
                 headers: {
                     access_token:localStorage.getItem("access_token")
                 },
@@ -130,7 +130,7 @@ export default {
         patchTaskDoing(id){
             axios({
                 method: "PATCH",
-                url: `http://localhost:3000/tasks/${id}`,
+                url: `https://kanban-romizaki-app.herokuapp.com/tasks/${id}`,
                 headers: {
                     access_token:localStorage.getItem("access_token")
                 },
@@ -148,7 +148,7 @@ export default {
         patchTaskDone(id){
             axios({
                 method: "PATCH",
-                url: `http://localhost:3000/tasks/${id}`,
+                url: `https://kanban-romizaki-app.herokuapp.com/tasks/${id}`,
                 headers: {
                     access_token:localStorage.getItem("access_token")
                 },
@@ -166,7 +166,7 @@ export default {
         editTask(value) {
             axios({
                 method: "PUT",
-                url: `http://localhost:3000/tasks/${value}`,
+                url: `https://kanban-romizaki-app.herokuapp.com/tasks/${value}`,
                 headers: {
                     access_token:localStorage.getItem("access_token")
                 },

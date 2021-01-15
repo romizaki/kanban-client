@@ -39,7 +39,7 @@ export default {
         register() {
             axios({
                 method: "POST",
-                url: `http://localhost:3000/register`,
+                url: `https://kanban-romizaki-app.herokuapp.com/register`,
                 data: {
                     name: this.name,
                     email: this.email,
@@ -47,7 +47,7 @@ export default {
                 }
             })
             .then(({data}) => {
-                this.$emit("changePage","login")
+                this.$emit("changePage","LoginForm")
             })
             .catch(err => {
                 console.log(err);

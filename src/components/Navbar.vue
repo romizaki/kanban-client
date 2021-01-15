@@ -33,7 +33,7 @@ export default {
           this.$emit('taskForm')
         },
         homePage(){
-          this.$emit('homePage')
+          this.$emit('HomePage')
         }
     }
 }

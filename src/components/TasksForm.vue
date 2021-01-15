@@ -40,7 +40,7 @@ export default {
         addTask() {
             axios({
                 method: "POST",
-                url: `http://localhost:3000/tasks`,
+                url: `https://kanban-romizaki-app.herokuapp.com/tasks`,
                 headers: {
                     access_token:localStorage.getItem("access_token")
                 },
@@ -52,7 +52,7 @@ export default {
             .then(({data}) => {
                 this.title = "",
                 this.category = "",
-                this.$emit("changePage","home")
+                this.$emit("changePage","HomePage")
             })
             .catch(err => {
                 console.log(this.category);

@@ -17,6 +17,9 @@
           <br>
           <br>
         </form>
+          <button type="submit" class="btn btn-primary btn-sm" @click="registerForm">register</button>
+          <br>
+          <br>
           <button v-google-signin-button="clientId" class="google-signin-button btn-primary"> Continue with Google</button>
       </div>
     </div>
@@ -38,10 +41,13 @@ export default {
         }
     },
     methods: {
+        registerForm(){
+          this.$emit('registerForm')
+        },
         login() {
             axios({
                 method: "POST",
-                url: `http://localhost:3000/login`,
+                url: `https://kanban-romizaki-app.herokuapp.com/login`,
                 data: {
                     email: this.email,
                     password: this.password
@@ -49,23 +55,27 @@ export default {
             })
             .then(({data}) => {
                 localStorage.setItem('access_token', data.access_token)
-                this.$emit("changePage","home")
+                this.$emit("changePage","HomePage")
             })
             .catch(err => {
+              if (this.error=err.response.data.message) {
                 this.error=err.response.data.message
+              } else {
+                this.$emit("changePage","RegisterForm")
+              }
             })
         },
       OnGoogleAuthSuccess (idToken) {
         axios({
           method: "POST",
-          url: `http://localhost:3000/logingoogle`,
+          url: `https://kanban-romizaki-app.herokuapp.com/logingoogle`,
           data: {
             id_token: idToken
           }
         })
         .then(data => {
           localStorage.setItem('access_token', data.data.access_token)
-          this.$emit("changePage","home")
+          this.$emit("changePage","HomePage")
         })
         .catch(err => {
           console.log(err);

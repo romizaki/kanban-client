@@ -40,7 +40,7 @@ export default {
         addTask() {
             axios({
                 method: "PUT",
-                url: `http://localhost:3000/tasks`,
+                url: `https://kanban-romizaki-app.herokuapp.com/tasks`,
                 headers: {
                     access_token:localStorage.getItem("access_token")
                 },
