@@ -1,109 +1,29 @@
 <template>
-  <div class="row">
+  <div class="container" >
+      <div class="row">
+<!-- v-for="item in items" :key="item.id" -->
 
-      <div class="col container mt-5">
-        
-        <!-- CARDS -->
-
-        <div class="card text-center">
-          <div class="card-header">
-            <ul class="nav nav-pills card-header-pills">
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Active</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-              </li>
-            </ul>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-        </div>
-
-      </div>
-      <div class="col container mt-5">
-
-        <div class="card text-center">
-          <div class="card-header">
-            <ul class="nav nav-pills card-header-pills">
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Active</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-              </li>
-            </ul>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-        </div>
-
-      </div>
-      <div class="col container mt-5">
-
-        <div class="card text-center">
-          <div class="card-header">
-            <ul class="nav nav-pills card-header-pills">
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Active</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-              </li>
-            </ul>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-        </div>
-
-      </div>
-      <div class="col container mt-5">
-
-        <div class="card text-center">
-          <div class="card-header">
-            <ul class="nav nav-pills card-header-pills">
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Active</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-              </li>
-            </ul>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          </div>
-        </div>
-
-      </div>
+      <category-column 
+        v-for="(category, index) in categories" 
+        :key="index" 
+        :category="category"
+        :tasks="tasks"
+      ></category-column>
+      
     </div>
+  </div>
 </template>
 
 <script>
+import CategoryColumn from './CategoryColumn'
+
+
 export default {
     name: "HomePage",
     components: {
-
-    }
+      CategoryColumn
+    },
+    props: ['tasks','categories']
 }
 
 </script>

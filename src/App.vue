@@ -11,6 +11,7 @@
         <home-page
             v-else-if="currentPage == 'home'"
             :tasks="tasks"
+            :categories="categories"
         ></home-page>
         <task-form
             v-if="currentPage == 'taskform'"
@@ -28,10 +29,14 @@ import RegisterForm from "./components/RegisterForm"
 import TaskForm from "./components/TasksForm"
 
 export default {
+    name: "App",
     data() {
         return {
-            currentPage: "home",
-            tasks: []
+            currentPage: "login",
+            tasks: [],
+            // ini untuk penampung kategori
+            // sesuaikan dengan kategori yg ada
+            categories: ['Backlog','Todo','Doing','Done']
         }
     },
     components: {
@@ -65,8 +70,8 @@ export default {
     created() {
         if (localStorage.getItem("access_token")) {
             this.currentPage = "home"
+            this.fetchTask()
         }
-        this.fetchTask()
     }
 }
 </script>

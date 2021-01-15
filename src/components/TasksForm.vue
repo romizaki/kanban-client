@@ -12,8 +12,8 @@
             <select class="form-control form-control-sm" v-model="category" id="categoryTask">
                 <option value="Backlog">Backlog</option>
                 <option value="Todo">Todo</option>
+                <option value="Doing">Doing</option>
                 <option value="Done">Done</option>
-                <option value="Complete">Complete</option>
             </select>
           </div>
           <br>
